@@ -40,7 +40,7 @@ app.get("/api/timestamp/:dateString?", function(req, res){
   }
 
   if(date.toString === "Invalid date"){
-    throw new Error(dateString)
+    res.json({ error : "Invalid Date" })
   }
   else{
     res.json({unix: date.getTime(), utc: date.toUTCString()});
